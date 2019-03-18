@@ -4,26 +4,25 @@
 #
 Name     : R-fAssets
 Version  : 3042.84
-Release  : 9
+Release  : 10
 URL      : https://cran.r-project.org/src/contrib/fAssets_3042.84.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/fAssets_3042.84.tar.gz
 Summary  : Rmetrics - Analysing and Modelling Financial Assets
 Group    : Development/Tools
 License  : GPL-2.0+
-Requires: R-ecodist
-Requires: R-energy
-Requires: R-fBasics
-Requires: R-fMultivar
-Requires: R-mvnormtest
-Requires: R-robustbase
-Requires: R-sn
-Requires: R-timeDate
-Requires: R-timeSeries
+Requires: R-DEoptimR
+Requires: R-Rcpp
+Requires: R-mnormt
+Requires: R-numDeriv
+BuildRequires : R-DEoptimR
+BuildRequires : R-Rcpp
 BuildRequires : R-ecodist
 BuildRequires : R-energy
 BuildRequires : R-fBasics
 BuildRequires : R-fMultivar
+BuildRequires : R-mnormt
 BuildRequires : R-mvnormtest
+BuildRequires : R-numDeriv
 BuildRequires : R-robustbase
 BuildRequires : R-sn
 BuildRequires : R-timeDate
@@ -42,11 +41,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1537797564
+export SOURCE_DATE_EPOCH=1552901792
 
 %install
+export SOURCE_DATE_EPOCH=1552901792
 rm -rf %{buildroot}
-export SOURCE_DATE_EPOCH=1537797564
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -81,8 +80,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/library fAssets|| : 
-cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
+R CMD check --no-manual --no-examples --no-codoc  fAssets || :
 
 
 %files

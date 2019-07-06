@@ -4,7 +4,7 @@
 #
 Name     : R-fAssets
 Version  : 3042.84
-Release  : 13
+Release  : 14
 URL      : https://cran.r-project.org/src/contrib/fAssets_3042.84.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/fAssets_3042.84.tar.gz
 Summary  : Rmetrics - Analysing and Modelling Financial Assets

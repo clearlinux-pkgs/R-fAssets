@@ -4,25 +4,26 @@
 #
 Name     : R-fAssets
 Version  : 3042.84
-Release  : 14
+Release  : 15
 URL      : https://cran.r-project.org/src/contrib/fAssets_3042.84.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/fAssets_3042.84.tar.gz
 Summary  : Rmetrics - Analysing and Modelling Financial Assets
 Group    : Development/Tools
 License  : GPL-2.0+
-Requires: R-DEoptimR
-Requires: R-Rcpp
-Requires: R-mnormt
-Requires: R-numDeriv
-BuildRequires : R-DEoptimR
-BuildRequires : R-Rcpp
+Requires: R-ecodist
+Requires: R-energy
+Requires: R-fBasics
+Requires: R-fMultivar
+Requires: R-mvnormtest
+Requires: R-robustbase
+Requires: R-sn
+Requires: R-timeDate
+Requires: R-timeSeries
 BuildRequires : R-ecodist
 BuildRequires : R-energy
 BuildRequires : R-fBasics
 BuildRequires : R-fMultivar
-BuildRequires : R-mnormt
 BuildRequires : R-mvnormtest
-BuildRequires : R-numDeriv
 BuildRequires : R-robustbase
 BuildRequires : R-sn
 BuildRequires : R-timeDate
@@ -40,13 +41,13 @@ to manage, to investigate and to analyze data sets of financial
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1552901792
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1569390635
 
 %install
-export SOURCE_DATE_EPOCH=1552901792
+export SOURCE_DATE_EPOCH=1569390635
 rm -rf %{buildroot}
-export LANG=C
+export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -75,12 +76,12 @@ R CMD INSTALL --preclean --install-tests --built-timestamp=${SOURCE_DATE_EPOCH} 
 cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 %{__rm} -rf %{buildroot}%{_datadir}/R/library/R.css
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc  fAssets || :
+R CMD check --no-manual --no-examples --no-codoc fAssets || :
 
 
 %files

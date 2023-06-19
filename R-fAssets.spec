@@ -5,7 +5,7 @@
 #
 Name     : R-fAssets
 Version  : 4023.85
-Release  : 41
+Release  : 42
 URL      : https://cran.r-project.org/src/contrib/fAssets_4023.85.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/fAssets_4023.85.tar.gz
 Summary  : Rmetrics - Analysing and Modelling Financial Assets
